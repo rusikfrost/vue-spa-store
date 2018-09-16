@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Shopping Cart</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Rock+Salt' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru" rel="stylesheet">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div id="app">
+  <div class="header">
+    <h2>VkBotShop</h2><br/><br/><br/><br/>
+    <b class="slog"> Заставь код работать на Тебя и за Тебя. </b>
+    <div>
+      <button @click="showCart = !showCart" v-show="!verified">
+        {{ items.length + (items.length > 1 || items.length === 0 ? " ботов" : " бот") }}
+      </button>
+    </div>
+  </div>
+  <div class="cart" v-show="showCart">
+    <div v-show="items.length > 0">
+      <ul>
+        <li v-for="item in items" transition="fade">
+          <p><strong>{{ item.quantity }}</strong> - {{ item.name }} <i class="fa fa-trash" @click="removeFromCart(item)"></i></p>
+        </li>
+      </ul>
+      <div><button @click="verified = true, showCart = false">Переййти к оплате</button></div>
+    </div>
+    <div v-show="items.length === 0">
+      <p>Ваша корзина пуста</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="shop" v-show="!verified">
+     
+      <ul>
+        <li v-for="item in shop">
+          <div>
+            <h5>{{ item.name }}</h5>
+            <p class="price"><b>{{ item.price }}  </b><span class="glyphicon glyphicon-ruble"> </span></p>
+            <button @click="addToCart(item)">Добавить в корзину</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="checkout" v-show="verified">
+    
+      <h5 v-for="item in items"><strong>{{ item.quantity }}</strong> - {{ item.name }}<span> {{ item.price * item.quantity }}  <span class="glyphicon glyphicon-ruble"></span>  </span></h5>
+      <hr />
+      <div class="row">
+        <div class="u-pull-right">
+          <h5>Total: <span>{{ total }}  <span class="glyphicon glyphicon-ruble"></span></span>  </h5>
+          <button>Оплатить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
