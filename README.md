@@ -1,1 +1,9 @@
 "# vue-spa-store" 
+<h1> Одностраничный интернет магазин на VueJS  </h1>
+<p Данный интернет магазин выполнен по технологии single-page application. </p>
+<b> Он состоит из частей: </b><br/><br/>
+<ul>
+  <li> Выбора товаров <br/><img src="https://pp.userapi.com/c844321/v844321054/f345c/YTTVYQK1Pag.jpg"></li>
+  <li> Проверки корзины <br/><img src="https://pp.userapi.com/c844321/v844321054/f3466/Jq78nwGtOiA.jpg"></li>
+  <li> И перехода к оплате <br/><img src="https://pp.userapi.com/c844321/v844321054/f345c/YTTVYQK1Pag.jpg"></li>
+</ul>
